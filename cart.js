@@ -1,19 +1,16 @@
+
 var cart_number = 0;
 
-// const cartBtn = document.querySelectorAll(".cartButtonChange");
-// console.log(cartBtn);
-// var item_price = document.querySelectorAll(".cart-item-price");
-// console.log(item_price);
-
-//var cartAmount = document.getElementById("cartAmount");
-//cartAmount.innerHTML += "<p>  </p>";
-
-
 var total = [];
+var cartShop = [];
+// console.log(cartShop);
 
 (function() {
 
   const cartBtn = document.querySelectorAll(".cartButtonChange");
+
+  //const itemCart = {};
+  
 
   cartBtn.forEach(function(btn) {
     btn.addEventListener("click", function(event) {
@@ -39,20 +36,44 @@ var total = [];
         addItem.innerHTML += 
             `
             <tr> 
-            <td><a href="#"><i class="far fa-times-circle"></i></a></td>
+            
                     <td><img src="${itemCart.picture}" alt=""></td>
                     <td>${itemCart.prodName}</td>
-                    <td >${itemCart.price}</td>
+                    <td id="costOfGoods">${itemCart.price}</td>
                     
-            </tr>`;
+            </tr>`
+            ;
         //alert("Item added");
         cart_number++;
 
         showTotal();
         showCartNumber();
+
+        // var remove_item = document.getElementById("remove_item");
+        // console.log(remove_item);
+
+        // (function() {
+        //   remove_item.addEventListener("click", function() {
+        //     addItem.innerHTML -= addItem;
+        //   })
+        // })();
+
+        cartShop.push(itemCart.price);
+        console.log("Array ",cartShop);
+
+        var stringCost = 0;
+        for(let i=0; i < cartShop.length; i++)
+        {
+          //var stringCost = ; 
+          stringCost += parseFloat(cartShop[i].slice(2));
+        }
+
+        document.getElementById("cartAmount").textContent = "Rs "+stringCost;
       }
     })
   })
+
+  
 
   function showCartNumber()
   {
@@ -62,28 +83,33 @@ var total = [];
   function showTotal()
   {
     
-    //console.log("Original total ",total);
-    const items = document.querySelectorAll(".cart-item-price");
+    // console.log("Original total ",total);
+    // var items = document.querySelectorAll(".cart-item-price");
 
-    //console.log(items);
+    // console.log("Items" ,items);
 
-    items.forEach(function(item) {
-      //console.log(item.textContent);
-      total.push(parseFloat(item.textContent));
-    });
+    // items.forEach(function(item) {
+    //   console.log("Item is" ,item);
+    //   console.log(item.textContent);
+    //   total.push(parseFloat(item.textContent));
+    // });
 
-    console.log("First total ",total);
+    // console.log("First total ",total);
 
-    var totalMoney = total.reduce(function(total, item) {
-      total += item;
-      return total;      
-    }, 0);
+    // var totalMoney = total.reduce(function(total, item) {
+    //   total += item;
+    //   return total;      
+    // }, 0);
 
-    //console.log(totalMoney);
-    var finalMoney = totalMoney.toFixed(2);
+    // console.log("TotalMoney ",totalMoney);
+    // var finalMoney = totalMoney.toFixed(2);
     
 
-    document.getElementById("cartAmount").textContent = finalMoney;
+    // document.getElementById("cartAmount").textContent = "Rs "+finalMoney;
+    //console.log("PaymentText ",payment_text);
+
+    // total.push(parseFloat(itemCart.price));
+     //console.log(total);
   }
 
 })();
@@ -99,7 +125,8 @@ console.log(clearCart);
   document.getElementById("cartAmount").textContent = " ";
   document.getElementById("cart_number").textContent = 0;
   cart_number = 0;
-  total = [];
+  cartShop = [];
+  console.log(total);
   })
 })();
 
@@ -117,14 +144,24 @@ var changeBody4 = document.getElementById("product4");
 // var payWall = document.getElementsByTagName("section");
 //console.log(changeBody1);
 
+
 (function() {
   payment.addEventListener("click", function() {
-    if(total.length == 0)
+    
+  })
+})();
+
+
+
+(function() {
+  payment.addEventListener("click", function() {
+    if(cart_number == 0)
     {
       alert("Empty Cart");
     }
     else
     {
+      
       changeBody1.innerHTML = `
     <!DOCTYPE html>
     <html lang="en">
@@ -144,6 +181,7 @@ var changeBody4 = document.getElementById("product4");
             <div class="container">
                 <div class="left">
                     <h3>BILLING ADDRESS</h3>
+                    
                     <form action="">
                         Full Name
                         <input type="text" name="" placeholder="Enter Name">
@@ -216,7 +254,7 @@ var changeBody4 = document.getElementById("product4");
                         </div>
                         
                     </form>
-                    <input type="submit" value="Proceed to Checkout">
+                    <a href="razor.html"><button>Proceed</button></a>
                 </div>
             </div>
         
