@@ -75,21 +75,23 @@ button.normal1{
     margin-bottom: 10px;
 }
 
-
-/* button.normal{
+button.normal2{
     font-size: 14px;
     font-weight: 600;
-    padding: 15px 30px; /* top-bottom 15px and left-right 30px
+    padding: 15px 30px; /*top-bottom 15px and left-right 30px */
     color: #000;
-    background-color: #fff;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #088178;
+    margin-left: 20px;
     border: none;
     outline: none;
     transition: 0.2s;
     margin-bottom: 10px;
-} */
+} 
 
+button.normal2:hover{
+    color:#fff;
+    background: rgb(69, 154, 206);
+}
 
 button.white{
     font-size: 13px;
