@@ -107,11 +107,12 @@
         "name": "LinkStore",
         "description": "Test Transaction",
         "image": "https://example.com/your_logo",
-        "order_id": "order_KW3oOk8EWHHQY0", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        "order_id": "order_KWLv9ZnIDsbtuF", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
         "handler": function (response){
-            alert(response.razorpay_payment_id);
-            alert(response.razorpay_order_id);
-            alert(response.razorpay_signature)
+            alert("Payment Done successfully") ;
+            alert("Order placed successfully");
+            alert("Delivery in 2 to 3 days");
+            
         },
         "prefill": {
             "name": "Gaurav Kumar",

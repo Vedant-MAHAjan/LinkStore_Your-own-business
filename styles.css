@@ -873,7 +873,7 @@ height: 100px;
     flex-direction: column; /*contents inside this banner ie.h2,h4,span are placed column wise*/
     justify-content: center;
     align-items: flex-start; /*the text will start from begining of line rather than center*/
-    background-image: url(img/banner/b7.jpg);
+    background-image: url(img/banner/keychain.jpeg);
     min-width:30%;
     height: 30vh;
     background-size: cover;
@@ -1088,6 +1088,7 @@ footer a:hover{
 
     #feature .fe-box {
         margin: 15px 15px;
+        
     } 
 
     /*featured products*/
@@ -1235,7 +1236,7 @@ footer a:hover{
     border: 1px solid saddlebrown;
     border-radius: 7px;
     margin-bottom: 40px;
-    /* margin:15px 15px; */
+    margin:15px 15px;
 }
 
  #shopFeature .fe-box:hover{

@@ -30,7 +30,7 @@ function validate(){
 
     sendBtn.addEventListener("click", (e)=>{
         e.preventDefault();
-        if(email.value == ""){
+        if(email.value == "" || email.value != "@"){
             emptyerror();
         }
         else{
